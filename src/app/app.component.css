@@ -1,0 +1,13 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.router {
+  height:100%;
+}
+
+mat-toolbar button.active {
+  color: #fff!important;
+  background-color: #2b4d4f!important;
+}
+

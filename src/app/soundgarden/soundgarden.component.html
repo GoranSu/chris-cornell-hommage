@@ -1,0 +1,25 @@
+<div [@fadeInOut]>
+<div class="large-box mat-elevation-z4">
+    <article>
+      <div [innerHTML]=artist.artistAbout></div>
+    </article>
+  </div>
+
+
+  <mat-tab-group mat-stretch-tabs dynamicHeight class="large-box mat-elevation-z4">
+      <mat-tab *ngFor="let album of artist.album" label={{album.albumTitle}}>
+            <div class="row">
+              <div class="column">
+                <p style="color:#0056b3">{{album.albumTitle}} ({{album.albumYear}})</p>
+                <div *ngFor="let song of album.track">
+                    {{song.trackNumber}}.
+                    {{song.trackName}}
+                </div>
+              </div>
+            <div class="column">
+              <img src={{album.albumArtwork}} height="250px">
+            </div>
+          </div>
+      </mat-tab>
+    </mat-tab-group>
+</div>

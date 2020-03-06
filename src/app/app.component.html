@@ -1,0 +1,13 @@
+<div [@fadeInOut]>
+  <mat-toolbar>
+    <button mat-button routerLink="home" routerLinkActive="active">Home</button>
+    <span class="example-spacer"></span>
+    <button mat-button *ngFor="let item of navigation" [routerLink]="[item.link]" routerLinkActive="active">
+      {{item.label}}
+    </button>
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>
+
+</div>
+
