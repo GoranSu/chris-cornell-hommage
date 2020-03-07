@@ -11,6 +11,9 @@ import { SoundgardenComponent } from './soundgarden/soundgarden.component';
 import { TempleComponent } from './temple/temple.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
+import { InMemoryDataService } from './shared/in-memory-data.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,13 @@ import { RouterModule } from '@angular/router';
     AppMaterialModule,
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
     RouterModule.forRoot([
       {
         path: '',
@@ -52,7 +62,7 @@ import { RouterModule } from '@angular/router';
       }
     ]),
   ],
-  providers: [],
+  providers: [InMemoryDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
