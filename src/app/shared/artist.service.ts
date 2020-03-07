@@ -13,7 +13,7 @@ export class ArtistService {
 
   getArtist(artist: string): Observable<Artist> {
     if (!artist.trim()) {
-      // if not search term, return empty hero array.
+      // if not search term, return empty artist array.
       return of();
     }
     return this.http.get<Artist>(this.inMemoryApiUrl + '/?artistName=' + artist);
